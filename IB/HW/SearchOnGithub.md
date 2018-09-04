@@ -16,13 +16,13 @@ $ ssh-keygen -t rsa -C "你的邮箱"
 
 C:\Users\hyt.ssh 用记事本打开id_rsa.pub
 
-4.将ssh key用于你的GitHub账户
+5.将ssh key用于你的GitHub账户
 
 GitHub/setting/ssh key/add new ssh key
 
-5.建立本地文件夹 并右键文件夹选择 Git Bash Here
+6.建立本地文件夹 并右键文件夹选择 Git Bash Here
 
-6. put changes to index
+7.put changes to index
 
 	$ git init
 
@@ -30,13 +30,13 @@ GitHub/setting/ssh key/add new ssh key
 
 	$ git commit -m "你的备注"
 
-7.将你的repository与本地文件夹链接
+8.将你的repository与本地文件夹链接
 
 	1. 在github中取得地址
 	
 	2. $ git remote add origin https://github.com/----------  （输入你的地址）
 	
-8. download and upload
+9.download and upload
 
 	$ git pull origin master (下载)
 
