@@ -1,3 +1,9 @@
+
+
+
+
+# Noting Important
+
 Welcome to my repository
 
 I'm JerryHao 
