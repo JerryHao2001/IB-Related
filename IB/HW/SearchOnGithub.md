@@ -24,11 +24,11 @@ GitHub/setting/ssh key/add new ssh key
 
 6. put changes to index
 
-$ git init
+	$ git init
 
-$ git add .
+	$ git add .
 
-$ git commit -m "你的备注"
+	$ git commit -m "你的备注"
 
 7.将你的repository与本地文件夹链接
 
@@ -38,9 +38,9 @@ $ git commit -m "你的备注"
 	
 8. download and upload
 
-$ git pull origin master (下载)
+	$ git pull origin master (下载)
 
-$ git push -u origin master（上传）
+	$ git push -u origin master（上传）
 
 
 # git & branch
