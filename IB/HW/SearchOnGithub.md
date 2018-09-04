@@ -22,7 +22,7 @@ GitHub/setting/ssh key/add new ssh key
 
 5.建立本地文件夹 并右键文件夹选择 Git Bash Here
 
-6.
+6. put changes to index
 
 $ git init
 
@@ -36,7 +36,7 @@ $ git commit -m "你的备注"
 	
 	2. $ git remote add origin https://github.com/----------  （输入你的地址）
 	
-8.
+8. download and upload
 
 $ git pull origin master (下载)
 
