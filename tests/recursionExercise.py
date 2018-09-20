@@ -50,6 +50,21 @@ def fib_sum(n):
     else:
         return fib(n) + fib_sum(n-1)
 
+def fibIter(n):
+    '''
+    input:n(int)
+    output:nst term of sequence
+    '''
+    temp = [1,1]
+    a = 1
+    b = 1
+    for i in range(n-1):
+        b,a = a+b,b
+        temp.append(b)
+    print (temp)
+    return temp[n]
+    
+
 
 t = turtle.Turtle()
 
@@ -73,24 +88,33 @@ def fractal(n = (-300.00,-200.00),l = 270):
         t.lt(120)
         t.fd(l)
         t.lt(120)
-        jelly(b,l/2)
-        jelly(c,l/2)
+        fractal(b,l/2)
+        fractal(c,l/2)
 
-print(sum_recur(4))
-print(fac_recur(4))
-print(power_recur(3,2))
-print(fib(5),fib_sum(5))
-fractal()
-        
+def test():
+    print(sum_recur(4))
+    print(fac_recur(4))
+    print(power_recur(3,2))
+    print(fib(5),fib_sum(5))
+    fractal()
+
+
+
+
+
+
+
+'''
 class test():
     def __init__(self,temp=0):
         self.temp = temp
-    def test_sum_recur(n = 5):
-        ans = sum(range(1,n+1)
-        if ans == sum_recur(5):
+    def test_sum_recur(n):
+        assert = sum(range(1,n+1)
+        
             pass
         else:
             self.temp +=1
+'''
             
     
     
