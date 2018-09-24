@@ -1,3 +1,17 @@
+#polysum
+def polysum(n,s):
+    '''
+    input:n(number of sides)
+          s(length)
+    output: area + perimeter^2
+    '''
+    import math
+    peri = n*s
+    area = 0.25*n*s**2/math.tan(math.pi/n)
+    return round(peri**2 + area,4)
+
+
+
 #L4 Problem Set2-1
 balance = 484
 annualInterestRate = 0.2
