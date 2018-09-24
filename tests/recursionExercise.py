@@ -1,7 +1,13 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Sep 19 08:05:21 2018
+Created on Thu Sep 20 11:53:04 2018
 
+@author: 11658
+"""
+
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Sep 19 08:05:21 2018
 @author: 11658
 """
 import turtle
@@ -118,4 +124,3 @@ class test():
             
     
     
-
