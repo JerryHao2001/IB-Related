@@ -87,7 +87,7 @@ def speedTest(n):
     from time import clock
     from random import shuffle
     timeList = []
-    lengthList = [i for i in range(1000,6000,200)]
+    lengthList = [i for i in range(1000,6000,1000)]
     for i in lengthList:
         temp = [j for j in range(i,0,-1)]
         #shuffle(temp)
@@ -102,7 +102,7 @@ def illustrate():
     func = [selectSort,bubbleSort,insertSort,mergeSort]
     funcName = ['selectSort','bubbleSort','insertSort','mergeSort']
     for i in range(4):
-        plt.plot([i for i in range(1000,6000,200)],speedTest(func[i]), label = funcName[i])
+        plt.plot([i for i in range(1000,6000,1000)],speedTest(func[i]), label = funcName[i])
     plt.xlabel('length of step list')
     plt.ylabel('running time(s)')
     plt.legend()
