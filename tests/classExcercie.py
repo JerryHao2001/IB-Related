@@ -42,7 +42,7 @@ class student():
     a student with 
     name, age, gender, class, and subjectsGrades
     '''
-    def __init__(self,name,age,gender,classs,subjectsGrades):
+    def __init__(self,name,age = 17,gender = '-',classs = 'C7',subjectsGrades = 'no grade avilable'):
         '''
         name:str
         age:int
