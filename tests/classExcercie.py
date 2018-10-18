@@ -127,7 +127,7 @@ class IBStudent(student):
     IB Students
     '''
     tokGrade = ['A','B','C','D','E','F']
-    def __init__(self, name = '-',age = 17,gender = '-',classs = 'C7',subjectsGrades = 'no grade avilable',hairRemain = 0, TOK = "F", CAS = 0, EE = 0, IA = 0):
+    def __init__(self, name = '-',age = 17,gender = '-',classs = 'C7',subjectsGrades = 'no grade avilable',hairRemain = 100, TOK = "F", CAS = 0, EE = 0, IA = 0):
         '''
         name:str
         age:int
