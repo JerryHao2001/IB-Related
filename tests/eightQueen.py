@@ -6,7 +6,10 @@ Created on Sun Oct 21 02:25:02 2018
 """
 
 class eightQueen():
-        
+    """
+    input: number of the queens
+    """
+    
     def __init__(self,number = 8):
         self.number = number
         self.board = list(range(number))   
@@ -40,27 +43,30 @@ class eightQueen():
         return False
             
     def toFind(self,n = 10):
+        """
+        input : n = 10
+        find n solutions of the quzzle
+        """
         from copy import copy
         from random import shuffle    
         self.solution = []
         while n > 0:
            shuffle(self.board)
-           if not self.boardClash():
+           if (not self.boardClash()) and (not self.board in self.solution):
                print("Found solution {0}".format(self.board))
                (self.solution).append(copy(self.board))
-               n -= 1
+               n -= 1                  
 
-        
-                  
-    
-    def drawOne(self,i):
+    def drawAll(self):
+        """
+        show all the solutions on a board
+        press "space" to show next solution
+        """
         import pygame
-        """ Draw a chess board with queens, as determined by the the_board. """
-
         pygame.init()
         colors = [(255,0,0), (0,0,0)]    # Set up colors [red, black]
     
-        n = len(self.solution[i])         # This is an NxN chess board.
+        n = len(self.solution[0])         # This is an NxN chess board.
         surfaceSize = 480           # Proposed physical surface size.
         squareSize = surfaceSize // n    # squareSize is length of a square.
         surfaceSize = n * squareSize     # Adjust to exactly fit n squares.
@@ -74,51 +80,34 @@ class eightQueen():
         # If the square is too small, offset becomes negative,
         #   but it will still be centered :-)
         queenOffset = (squareSize-queen.get_width()) // 2
-    
-        while True:
-    
-            # Look for an event from keyboard, mouse, etc.
-            ev = pygame.event.poll()
-            if ev.type == pygame.QUIT:
-                break;
-    
-            # Draw a fresh background (a blank chess board)
-            for row in range(n):           # Draw each row of the board.
-                colorIndex = row % 2           # Alternate starting color
-                for col in range(n):       # Run through cols drawing squares
-                    square = (col*squareSize, row*squareSize, squareSize, squareSize)
-                    surface.fill(colors[colorIndex], square)
-                    # Now flip the color index for the next square
-                    colorIndex = (colorIndex + 1) % 2
-    
-            # Now that squares are drawn, draw the queens.
-            for (col, row) in enumerate(self.solution[i]):
-              surface.blit(queen,
-                       (col*squareSize+queenOffset,row*squareSize+queenOffset))
-    
-            pygame.display.flip()
-    
-    
+
+        for i in self.solution:
+            while True:
+                # Look for an event from keyboard, mouse, etc.
+                ev = pygame.event.poll()
+                if (ev.type == pygame.QUIT) or (ev.type == pygame.KEYDOWN) :
+                    break;
+        
+                # Draw a fresh background (a blank chess board)
+                for row in range(n):           # Draw each row of the board.
+                    colorIndex = row % 2           # Alternate starting color
+                    for col in range(n):       # Run through cols drawing squares
+                        square = (col*squareSize, row*squareSize, squareSize, squareSize)
+                        surface.fill(colors[colorIndex], square)
+                        # Now flip the color index for the next square
+                        colorIndex = (colorIndex + 1) % 2
+        
+                # Now that squares are drawn, draw the queens.
+                for (col, row) in enumerate(i):
+                  surface.blit(queen,
+                           (col*squareSize+queenOffset,row*squareSize+queenOffset))
+        
+                pygame.display.flip()
+        
         pygame.quit()
-    
-    
-    
-    
-    def drawBoards(self,n):
-        assert n <= len(self.solution), "u don't have so many solutions!"        
-        keepOn = "yes"
-        for i in range(0,n):
-            if keepOn == 'yes':
-                self.drawOne(i)
-            else:
-                break
-            keepOn = input("input 'yes' to keep on").lower()
-            
-            
-                
             
 def testOne():
     queen = eightQueen()
-    queen.toFind(2)
-    queen.drawBoards(2)
+    queen.toFind(10)
+    queen.drawAll()
              
