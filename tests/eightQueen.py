@@ -7,8 +7,9 @@ Created on Sun Oct 21 02:25:02 2018
 
 class eightQueen():
         
-    def __init__(self):
-        self.board = list(range(8))   
+    def __init__(self,number = 8):
+        self.number = number
+        self.board = list(range(number))   
         self.solution = []
     
     def shareDiagonal(self,x0, y0, x1, y1):
@@ -39,13 +40,14 @@ class eightQueen():
         return False
             
     def toFind(self,n = 10):
+        from copy import copy
         from random import shuffle    
         self.solution = []
         while n > 0:
            shuffle(self.board)
            if not self.boardClash():
                print("Found solution {0}".format(self.board))
-               (self.solution).append(self.board)
+               (self.solution).append(copy(self.board))
                n -= 1
 
         
@@ -108,7 +110,10 @@ class eightQueen():
         for i in range(0,n):
             if keepOn == 'yes':
                 self.drawOne(i)
+            else:
+                break
             keepOn = input("input 'yes' to keep on").lower()
+            
             
                 
             
