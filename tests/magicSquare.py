@@ -15,7 +15,7 @@ def quiz1(k = 3,p = 1):
         print(p)
         
 class magicSquare():
-    def __init__(self,square):
+    def __init__(self,square = np.array([])):
         self.square = square
         self.n = len(self.square)
         
@@ -37,7 +37,7 @@ class magicSquare():
             if (temp2 != Sum) or (temp3 != Sum):
                 return False
         return True
-    def get(self,n = 5):
+    def getSquare(self,n = 5):
         '''
         n is the number of row of ur Square
         n must be odd
