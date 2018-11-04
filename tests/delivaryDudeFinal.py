@@ -143,5 +143,7 @@ def test(n):
     我用self.bestDistance 和 self.bestDNA 记录了最优解
     '''
     temp = (np.random.rand(n, 2))
+    
     jelly = deliveryRoute(temp)      
-    jelly.develop(500)
+    jelly.develop(200)
+    return(temp)
