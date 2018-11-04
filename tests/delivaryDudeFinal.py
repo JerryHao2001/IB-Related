@@ -136,6 +136,12 @@ class deliveryRoute():
 
 
 def test(n):
+    '''
+    n 为城市数
+    因未加入精英策略优化
+    算法可能丢掉最优解
+    我用self.bestDistance 和 self.bestDNA 记录了最优解
+    '''
     temp = (np.random.rand(n, 2))
     jelly = deliveryRoute(temp)      
     jelly.develop(500)

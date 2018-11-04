@@ -82,15 +82,51 @@ def mergeSort(x):
     left = mergeSort(x[:mid])
     right = mergeSort(x[mid:])
     return merge(left,right)
+
+
+def quickSort(array,left,right):    
+    '''
+    array: the array u wanna sort
+    left: start at left
+    right: end at right
+    '''    
+    def sort(array,left,right):
+        '''
+        sort once
+        '''
+        split = array[left]
+        while left < right:
+            while left < right and array[right] >= split:
+                right -= 1
+            while left < right and array[right] < split:
+                array[left] = array[right]
+                left += 1
+                array[right] = array[left]
+            array[left] = split
+        return left
+
+    if left < right:
+        split = sort(array,left,right)
+        quickSort(array,left,split)
+        quickSort(array,split+1,right)
+    return array
+def useQuickSort(array):
+    quickSort(array,0,len(array)-1)
+
             
 def speedTest(n):
+    '''
+    input: sort function
+    test the speed of one sort
+    output: list of time
+    '''
     from time import clock
     from random import shuffle
     timeList = []
     lengthList = [i for i in range(1000,6000,1000)]
     for i in lengthList:
         temp = [j for j in range(i,0,-1)]
-        #shuffle(temp)
+        shuffle(temp)
         start = clock()
         n(temp)
         end = clock()
@@ -98,10 +134,13 @@ def speedTest(n):
     return timeList
 
 def illustrate():
+    '''
+    illustrate the speed in graph
+    '''
     import matplotlib.pyplot as plt
-    func = [selectSort,bubbleSort,insertSort,mergeSort]
-    funcName = ['selectSort','bubbleSort','insertSort','mergeSort']
-    for i in range(4):
+    func = [selectSort,bubbleSort,insertSort,mergeSort,useQuickSort]
+    funcName = ['selectSort','bubbleSort','insertSort','mergeSort','quickSort']
+    for i in range(5):
         plt.plot([i for i in range(1000,6000,1000)],speedTest(func[i]), label = funcName[i])
     plt.xlabel('length of step list')
     plt.ylabel('running time(s)')
