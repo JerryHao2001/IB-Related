@@ -13,7 +13,7 @@ class stack(object):
         self.item.append(n)
         
     def pop(self):
-        self.item.pop()
+        return self.item.pop()
         
     def isEmpty(self):
         return len(self.item) == 0
@@ -24,6 +24,23 @@ class stack(object):
     def __str__(self):
         return('{}'.format(self.item))
     
+def reverseStr(n):
+    assert type(n) == str ,'Only String'
+    temp = stack()
+    for i in n:
+        temp.push(i)
+    return(''.join([(temp.pop()) for i in range(temp.getSize())]))
+    
+def balancedParenthese(n):
+    assert type(n) == str , 'Only String'
+    temp = stack()
+    for i in n:
+        if i == '(':
+            temp.push('(')
+        elif i == ')':
+            temp.pop()
+    return True if temp.isEmpty() else False
+
 if __name__ == '__main__':
     myStack = stack()
     print(myStack.getSize())
@@ -35,3 +52,7 @@ if __name__ == '__main__':
     print(myStack)
     myStack.pop()
     print(myStack.isEmpty())
+    print('\n')
+    print(reverseStr('jelly'))
+    print(balancedParenthese('(())'))
+    print(balancedParenthese('('))
