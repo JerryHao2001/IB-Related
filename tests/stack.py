@@ -34,12 +34,38 @@ def reverseStr(n):
 def balancedParenthese(n):
     assert type(n) == str , 'Only String'
     temp = stack()
+    front = ['(','[','{']
+    back = [')',']','}']
     for i in n:
-        if i == '(':
-            temp.push('(')
-        elif i == ')':
-            temp.pop()
+        if i in front:
+            temp.push(i)           
+        elif i in back:
+            if temp.isEmpty():
+                return False           
+            elif front.index(temp.pop()) != back.index(i):
+                return False
     return True if temp.isEmpty() else False
+                
+def de2bi(de):
+    assert type(de) == int, "Only Int"
+    temp = stack()
+    while de > 0:
+        temp.push(de%2)
+        de //= 2
+    return(''.join([(str(temp.pop())) for i in range(temp.getSize())]))
+    
+def de2he(he):
+    digit = '0123456789ABCDEF'
+    dic = {}
+    temp = stack()
+    for i in range(0,16):
+        dic[i] = digit[i]
+    while he > 0:
+        temp.push(dic[he%16])
+        he //= 16
+    return (''.join([str(temp.pop()) for i in range(temp.getSize())]))
+            
+            
 
 if __name__ == '__main__':
     myStack = stack()
@@ -54,5 +80,11 @@ if __name__ == '__main__':
     print(myStack.isEmpty())
     print('\n')
     print(reverseStr('jelly'))
-    print(balancedParenthese('(())'))
-    print(balancedParenthese('('))
+    print(balancedParenthese('([])'))
+    print(balancedParenthese('{[()]}'))
+    print(balancedParenthese(')'))
+    print('\n')
+    print(de2bi(10))
+    print(de2bi(2048))
+    print(de2he(31))
+    print(de2he(256))
