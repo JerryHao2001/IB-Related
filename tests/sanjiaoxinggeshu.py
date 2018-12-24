@@ -4,6 +4,7 @@ Created on Tue Nov 27 16:09:54 2018
 
 @author: 11658
 """
+'''
 n = int(input('length?'))
 solution = []
 count = 0
@@ -24,3 +25,13 @@ for i in range(1,n-1):
             count += 1
     
 print(count)
+'''
+n=int (input("please input the length of the rob:"))	
+cnt=0											
+for i in range(n):									
+    for j in range(n-i):
+        k=n-i-j
+        if i<=j<=k and i+j>k and j+k>i and i+k>j:			
+            cnt+=1
+            print(i,j,k)
+print(cnt)					
