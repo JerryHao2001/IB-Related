@@ -72,8 +72,7 @@ class deliveryRoute():
                 parent1[:] = np.concatenate((keep, change))
             return parent1
         
-        def elitist():
-            pass
+
         
         def mutate(child):
             for point in range(self.DNALength):
@@ -95,12 +94,7 @@ class deliveryRoute():
         #plt.ylim((-0.1, 1.1))
         plt.pause(0.01)
         
-    def disaster():
-        pass
-         
-        
- 
-     
+
     def develop(self,generation = 500):
         '''
         develop the routes for generation times
@@ -147,3 +141,6 @@ def test(n):
     jelly = deliveryRoute(temp)      
     jelly.develop(200)
     return(temp)
+    
+if __name__ == '__main__':
+    test(18)
