@@ -26,9 +26,6 @@ class deliveryRoute():
         
         
         self.population = np.vstack([np.random.permutation(self.DNALength) for i in range(self.popSize)])
-        self.xCoor = np.empty_like(self.population, dtype=np.float64)
-        self.yCoor = np.empty_like(self.population, dtype=np.float64)
-        self.totalDistance = np.empty((self.xCoor.shape[0]), dtype=np.float64)
         self.bestFitness = 0
         self.countDown = 500
         
