@@ -14,7 +14,7 @@ pg['ppg'],pg['atr'] = pg['pts'] / pg['g'], pg['ast'] / pg['tov']
 cluster_num = 5
 
 def visualize_clusters(pg,cluster_num):
-    colors = ['b','g','r','c','m','y','k']
+    colors = ['c','k','b','r','m','g','y']
 
     for n in range(cluster_num):
         clustered_pg = pg[pg['cluster'] == n]
@@ -76,7 +76,7 @@ def assign_to_cluster(row):
     return closest_cluster
 pg['cluster'] = pg.apply(lambda row: assign_to_cluster(row), axis=1)
 def visualize_clusters(df,num_clusters):
-    colors = ['b','g','r','c','m','y','k']
+    colors = ['c','k','b','r','m','g','y']
 
     for n in range(num_clusters):
         clustered_df = df[df['cluster'] == n]
